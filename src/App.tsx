@@ -5,7 +5,8 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HeroSection } from './components/HeroSection';
 import { KeyFeaturesSection } from './components/KeyFeaturesSection';
-import { UpcomingEventsSection, CommunityEvent } from './components/UpcomingEventsSection'; // Import Events section & type
+import { UpcomingEventsSection } from './components/UpcomingEventsSection'; // Import Events section
+import { CommunityEvent } from '@/data/events'; // Import type from data source
 import { CommunityShowcaseSection } from './components/CommunityShowcaseSection';
 import { TestimonialsSection } from './components/TestimonialsSection'; // Import Testimonials section
 import { Toaster } from "@/components/ui/sonner";
@@ -115,11 +116,12 @@ const EventsPage = () => (
 // Placeholder Past Events Page
 const PastEventsPage = () => {
     // Mock past event data (replace with actual data fetching)
-    const pastEvents: CommunityEvent[] = [
+    const pastEventsData: CommunityEvent[] = [
          { id: 'past-event-1', title: "Neon Nights: Valorant July", date: new Date(2024, 6, 15), game: "Valorant", type: "Tournament", description: "Completed tournament.", neonColor: 'electric-blue'},
          { id: 'past-event-2', title: "Community Game Night: Among Us", date: new Date(2024, 6, 28), game: "Among Us", type: "Community Night", description: "Fun times were had.", neonColor: 'cyber-pink'},
          { id: 'past-event-3', title: "CS2 Wingman Warmup", date: new Date(2024, 7, 5), game: "Counter-Strike 2", type: "Tournament", description: "Results posted.", prize: "Steam Keys", neonColor: 'neon-yellow'},
-    ].sort((a, b) => b.date.getTime() - a.date.getTime()); // Sort descending
+    ];
+    const pastEvents = pastEventsData.sort((a, b) => b.date.getTime() - a.date.getTime()); // Sort descending
 
     return (
         <PageLayout title="Past Events Archive" titleColor="neon-yellow">
