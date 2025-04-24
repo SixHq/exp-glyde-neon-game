@@ -1,0 +1,16 @@
+# Netlify configuration for the Vite project in the 'app' directory
+
+[build]
+  # Directory containing the project source code and package.json
+  base    = "app/"
+  # Build command to run (within the base directory)
+  command = "npm run build"
+  # Directory (relative to the base) containing the deploy-ready assets
+  publish = "dist/"
+
+# Optional: Redirects and rewrites for single-page applications (SPA)
+# Uncomment if your app uses client-side routing
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
