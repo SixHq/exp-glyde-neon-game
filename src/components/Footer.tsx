@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaDiscord, FaTwitter, FaTwitch, FaYoutube, FaInstagram, FaFacebook } from 'react-icons/fa'; // Social Icons
 import { Separator } from '@/components/ui/separator';

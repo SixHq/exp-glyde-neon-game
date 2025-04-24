@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [ /* ... testimonial data from Section 8 ...
     { id: 5, quote: "The cross-platform integration is a lifesaver! Tracking my stats across PC and console in one place is incredibly convenient.", name: "Kai 'BlueScreen'", username: "@DigitalGhost", avatarUrl: "https://as2.ftcdn.net/v2/jpg/08/28/54/53/1000_F_828545358_ppkcOGE6tUY2FRk4xaLfbhuda1cxIrjN.jpg", color: 'electric-blue', },
     { id: 6, quote: "Joined for the Valorant tournaments, stayed for the awesome people. It feels like a real community, not just a random LFG server.", name: "Max 'CodeMaster'", username: "@BuildMasterFlex", avatarUrl: "https://images.pexels.com/photos/2538122/pexels-photo-2538122.jpeg?cs=srgb&dl=pexels-connor-danylenko-534256-2538122.jpg&fm=jpg", color: 'cyber-pink', },
 ];
-const getNeonColorClass = (_color: Testimonial['color'], type: 'text' | 'border' | 'shadow' | 'glow' | 'ring' | 'bg') => { /* ... */ return ''; };
+const getNeonColorClass = () => { /* ... */ return ''; }; // Already removed type in previous step, just ensuring state
 const backgroundPatternUrl = "https://www.photoshopsupply.com/wp-content/uploads/2019/11/hexagon-pattern-dark.jpg";
 
 export function TestimonialsSection() {
@@ -73,18 +73,18 @@ export function TestimonialsSection() {
                                         <motion.div variants={cardHover} className="h-full">
                                             <Card className={cn( /* Base Styles from Section 8 */ "h-full flex flex-col justify-between bg-neon-surface/80 border border-neon-border/70 rounded-xl shadow-lg overflow-hidden", `hover:border-${testimonial.color} hover:shadow-${testimonial.color}/30` )}>
                                                 <CardContent className="p-6 pb-4 flex-grow">
-                                                    <blockquote className={cn( "relative border-l-4 pl-4 italic text-text-secondary text-base md:text-lg leading-relaxed", getNeonColorClass(testimonial.color, 'border') )}>
-                                                         <Quote className={cn( "absolute top-[-0.5rem] left-[-0.1rem] w-8 h-8 opacity-15 transform scale-x-[-1]", getNeonColorClass(testimonial.color, 'text') )} />
+                                                    <blockquote className={cn( "relative border-l-4 pl-4 italic text-text-secondary text-base md:text-lg leading-relaxed", getNeonColorClass(/* testimonial.color, 'border' */) )}>
+                                                         <Quote className={cn( "absolute top-[-0.5rem] left-[-0.1rem] w-8 h-8 opacity-15 transform scale-x-[-1]", getNeonColorClass(/* testimonial.color, 'text' */) )} />
                                                         {testimonial.quote}
                                                     </blockquote>
                                                 </CardContent>
                                                 <div className="flex items-center gap-4 p-6 pt-2 bg-neon-surface/50 border-t border-neon-border/50 mt-auto">
-                                                    <Avatar className={cn( "h-12 w-12 border-2", getNeonColorClass(testimonial.color, 'border') )}>
+                                                    <Avatar className={cn( "h-12 w-12 border-2", getNeonColorClass(/* testimonial.color, 'border' */) )}>
                                                         <AvatarImage src={testimonial.avatarUrl} alt={`${testimonial.name}'s avatar`} />
                                                         <AvatarFallback className="bg-neon-border text-text-secondary font-semibold"> {testimonial.name.split(' ').map(n => n[0]).filter((_, i, arr) => i === 0 || i === arr.length - 1).join('').toUpperCase()} </AvatarFallback>
                                                     </Avatar>
                                                     <div>
-                                                        <p className={cn( "font-semibold text-lg transition-colors duration-200", getNeonColorClass(testimonial.color, 'text'), `hover:${getNeonColorClass(testimonial.color, 'glow')}` )}> {testimonial.name} </p>
+                                                        <p className={cn( "font-semibold text-lg transition-colors duration-200", getNeonColorClass(/* testimonial.color, 'text' */), `hover:${getNeonColorClass(/* testimonial.color, 'glow' */)}` )}> {testimonial.name} </p>
                                                         <p className="text-sm text-text-secondary">{testimonial.username}</p>
                                                     </div>
                                                 </div>

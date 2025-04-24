@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { differenceInSeconds, intervalToDuration } from 'date-fns';
 import { cn } from '@/lib/utils';
 
