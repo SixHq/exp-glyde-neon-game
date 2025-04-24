@@ -1,0 +1,98 @@
+
+/* Import the Orbitron font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+/* Include Tailwind's base, components, and utilities layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define base styles and CSS variables */
+@layer base {
+  /* :root defines variables available globally */
+  :root {
+    /* CSS variables mapped from Tailwind config. Essential for Shadcn UI theming. */
+    --background: theme('colors.neon-bg');        /* 0a0a0f */
+    --foreground: theme('colors.text-primary');    /* e0e0ff */
+
+    --card: theme('colors.neon-surface');          /* 1a1a2e */
+    --card-foreground: theme('colors.text-primary'); /* e0e0ff */
+
+    --popover: theme('colors.neon-surface');       /* 1a1a2e */
+    --popover-foreground: theme('colors.text-primary');/* e0e0ff */
+
+    --primary: theme('colors.electric-blue');    /* 00ffff */
+    --primary-foreground: theme('colors.neon-bg');   /* 0a0a0f (high contrast for primary elements) */
+
+    --secondary: theme('colors.cyber-pink');     /* ff00ff */
+    --secondary-foreground: theme('colors.neon-bg');/* 0a0a0f */
+
+    --muted: theme('colors.neon-border');          /* 3a3a5e */
+    --muted-foreground: theme('colors.text-secondary');/* a0a0c0 */
+
+    --accent: theme('colors.vibrant-green');     /* 39ff14 */
+    --accent-foreground: theme('colors.neon-bg');    /* 0a0a0f */
+
+    --destructive: theme('colors.neon-yellow');    /* fff01f */
+    --destructive-foreground: theme('colors.neon-bg');/* 0a0a0f */
+
+    --border: theme('colors.neon-border');         /* 3a3a5e */
+    --input: theme('colors.neon-border');          /* 3a3a5e (can be same as border or slightly different) */
+    --ring: theme('colors.electric-blue');       /* 00ffff (Focus ring color, often primary) */
+
+    --radius: 0.5rem; /* Default border radius for elements like cards, buttons */
+  }
+
+  /* Apply dark mode variables if needed. */
+  /* Since our base theme IS dark, .dark might not need overrides unless */
+  /* you plan a separate light theme later. */
+  .dark {
+     /* Example: If dark mode needed slightly different shades */
+     /* --background: theme('colors.some-even-darker-bg'); */
+  }
+}
+
+/* Apply base element styling */
+@layer base {
+  /* Apply base border color to all elements. */
+  /* Note: This is a broad rule. You might prefer applying borders more selectively. */
+  * {
+    @apply border border-neon-border; /* Use theme color directly */
+  }
+
+  /* Apply base background, text color, and font to the body */
+  body {
+    @apply bg-neon-bg text-text-primary antialiased; /* Enable font anti-aliasing */
+    font-family: theme('fontFamily.sans'); /* Apply Orbitron font */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+
+  /* --- Custom Neon Scrollbar Styling --- */
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 10px; /* Width of vertical scrollbar */
+    height: 10px; /* Height of horizontal scrollbar */
+  }
+  ::-webkit-scrollbar-track {
+    background: theme('colors.neon-bg / 80%'); /* Slightly transparent track */
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: theme('colors.neon-border'); /* Thumb color */
+    border-radius: 10px;
+    border: 2px solid theme('colors.neon-bg'); /* Creates padding around thumb */
+  }
+   ::-webkit-scrollbar-thumb:hover {
+     background-color: theme('colors.electric-blue'); /* Brighter thumb on hover */
+     box-shadow: theme('boxShadow.neon-border-glow-blue'); /* Add subtle glow on hover */
+   }
+
+  /* Firefox */
+  /* Note: Firefox scrollbar styling is less customizable than Webkit */
+  html { /* Apply to html for better Firefox compatibility */
+    scrollbar-width: thin; /* Can be "auto", "thin", or "none" */
+    scrollbar-color: theme('colors.neon-border') theme('colors.neon-bg / 80%'); /* thumb track */
+  }
+  /* Firefox hover effect isn't directly possible with scrollbar-color */
+}
