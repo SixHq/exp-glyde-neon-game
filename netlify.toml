@@ -2,7 +2,7 @@
 
 [build]
   # Directory containing the project source code and package.json
-  base    = "app/"
+  base    = "/"
   # Build command to run (within the base directory)
   command = "npm run build"
   # Directory (relative to the base) containing the deploy-ready assets
